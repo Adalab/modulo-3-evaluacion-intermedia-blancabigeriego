@@ -1,17 +1,29 @@
 
 import '../styles/App.scss';
-import quotes from '../services/quotes.json';
-import { useState } from 'react';
+/* import quotes from '../services/quotes.json'; */
+import { useState, useEffect } from 'react';
+import callToApi from '../services/getFromApi';
 
 function App() {
+  
+
   //variables de estado
-  const [data, setData] = useState(quotes);
+  const [data, setData] = useState([]);
   const [newData, setNewData] = useState({
     quote: "",
     character:"",
   })
   const[search, setSearch] = useState("");
   const [searchChar, setSearchChar] = useState("Todos");
+
+  //useEffect
+  useEffect(()=>{
+    callToApi().then((response)=>{
+      setData(response)
+      console.log (response);
+    });
+
+  }, []);
 
   //pintar
   const htmlData = data
