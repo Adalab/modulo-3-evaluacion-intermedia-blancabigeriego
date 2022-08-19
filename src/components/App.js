@@ -11,7 +11,7 @@ function App() {
     character:"",
   })
   const[search, setSearch] = useState("");
-  const [searchChar, setSearchChar] = useState("");
+  const [searchChar, setSearchChar] = useState("Todos");
 
   //pintar
   const htmlData = data
@@ -19,9 +19,13 @@ function App() {
     return eachQuote.quote.toLowerCase().includes(search.toLowerCase());
   })
   .filter ((eachQuote)=>{
-    return eachQuote.character.toLowerCase().includes(searchChar.toLowerCase())
+  if (searchChar === "Todos"){
+    return true;
+  }else{
+    return eachQuote.character.toLowerCase().includes(searchChar.toLowerCase())}
   })
- 
+  
+  
   .map((eachQuote, index)=>{
     return(
       <li key={index}>{eachQuote.quote} -{eachQuote.character}</li>
@@ -73,7 +77,7 @@ function App() {
       <option>Rachel</option>
      </select>
      {htmlData};
-     <h2>Añadir uan nueva frase:</h2>
+     <h2>Añadir una nueva frase:</h2>
      <form>
       <label>Frase</label>
       <input type="text" placeholder="Añade frase" id="quote" name="quote" value={newData.quote} onChange={handleChange}/>
