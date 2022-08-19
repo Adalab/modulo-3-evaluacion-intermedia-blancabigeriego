@@ -56,5 +56,3 @@
       "character": "Joey"
     }
   ]
-
-  export default quotes.js;
