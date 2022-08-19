@@ -10,9 +10,19 @@ function App() {
     quote: "",
     character:"",
   })
+  const[search, setSearch] = useState("");
+  const [searchChar, setSearchChar] = useState("");
 
   //pintar
-  const htmlData = data.map((eachQuote, index)=>{
+  const htmlData = data
+  .filter((eachQuote)=>{
+    return eachQuote.quote.toLowerCase().includes(search.toLowerCase());
+  })
+  .filter ((eachQuote)=>{
+    return eachQuote.character.toLowerCase().includes(searchChar.toLowerCase())
+  })
+ 
+  .map((eachQuote, index)=>{
     return(
       <li key={index}>{eachQuote.quote} -{eachQuote.character}</li>
     )
@@ -37,10 +47,31 @@ function App() {
 
   };
 
+  const handleSearch = (ev) =>{
+    setSearch(ev.target.value);
+  }
+
+  const handleCharSearch =(ev) =>{
+    setSearchChar(ev.target.value);
+  }
+ 
 
   return (
    <div>
+     
      <h1>Frases de friends</h1>
+     <label>Filtra por frase:</label>
+     <input type="text" placeholder="Escribe la frase" name="search" value={search} onChange={handleSearch}/>
+     <label>Filtra por personaje:</label>
+     <select onChange={handleCharSearch} value={searchChar}>
+      <option>Todos</option>
+      <option>Ross</option>
+      <option>Mónica</option>
+      <option>Joey</option>
+      <option>Phoebe</option>
+      <option>Chandler</option>
+      <option>Rachel</option>
+     </select>
      {htmlData};
      <h2>Añadir uan nueva frase:</h2>
      <form>
