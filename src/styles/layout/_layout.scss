@@ -1,0 +1,47 @@
+.title{
+    font-size: 32px;
+    color: blueviolet;
+
+    &__2{
+        font-size: 28px;
+        color:blueviolet;
+    }
+}
+
+.form{
+    font-size: 18px;
+    font-weight: bold;
+    border: solid blueviolet 10px;
+    border-radius: 1%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    &__label{
+        font-size: 18px;
+        padding: 10px;
+        color: blueviolet;
+        align-self: flex-start;
+    }
+
+    &__input{
+        font-size: 16px;
+        color: blueviolet;
+        
+    }
+
+    &__btn{
+        background-color: blueviolet;
+        color:white;
+        font-size: 28px;
+        width: 150px;
+        height: 50px;
+        align-self: center;
+        margin: 5px;
+        cursor: pointer;
+
+    }
+}
+ .li{
+    font-size: 18px;
+    margin: 10px 0px 5px 15px;
+ }

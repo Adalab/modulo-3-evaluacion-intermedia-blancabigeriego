@@ -40,7 +40,7 @@ function App() {
   
   .map((eachQuote, index)=>{
     return(
-      <li key={index}>{eachQuote.quote} -{eachQuote.character}</li>
+      <li key={index} className='li'>{eachQuote.quote} -{eachQuote.character}</li>
     )
   });
 
@@ -75,27 +75,29 @@ function App() {
   return (
    <div>
      
-     <h1>Frases de friends</h1>
-     <label>Filtra por frase:</label>
-     <input type="text" placeholder="Escribe la frase" name="search" value={search} onChange={handleSearch}/>
-     <label>Filtra por personaje:</label>
-     <select onChange={handleCharSearch} value={searchChar}>
-      <option>Todos</option>
-      <option>Ross</option>
-      <option>Mónica</option>
-      <option>Joey</option>
-      <option>Phoebe</option>
-      <option>Chandler</option>
-      <option>Rachel</option>
-     </select>
+     <h1 className= "title">Frases de friends</h1>
+     <form className='form'>
+       <label className='form__label'>Filtra por frase:</label>
+       <input className='form__input'type="text" placeholder="Escribe la frase" name="search" value={search} onChange={handleSearch}/>
+       <label className='form__label'>Filtra por personaje:</label>
+       <select onChange={handleCharSearch} value={searchChar}>
+        <option>Todos</option>
+        <option>Ross</option>
+        <option>Mónica</option>
+        <option>Joey</option>
+        <option>Phoebe</option>
+        <option>Chandler</option>
+        <option>Rachel</option>
+       </select>
+     </form>
      {htmlData};
-     <h2>Añadir una nueva frase:</h2>
-     <form>
-      <label>Frase</label>
-      <input type="text" placeholder="Añade frase" id="quote" name="quote" value={newData.quote} onChange={handleChange}/>
-      <label>Personaje</label>
-      <input type="text" placeholder="Añade personaje" id="character" name="character" value={newData.character} onChange={handleChange}/>
-      <input type="submit" onClick={handleClick}/>
+     <h2 className= "title__2">Añadir una nueva frase:</h2>
+     <form className='form'>
+      <label className='form__label'>Frase</label>
+      <input className='form__input' type="text" placeholder="Añade frase" id="quote" name="quote" value={newData.quote} onChange={handleChange}/>
+      <label className='form__label'>Personaje</label>
+      <input className='form__input'type="text" placeholder="Añade personaje" id="character" name="character" value={newData.character} onChange={handleChange}/>
+      <input className="form__btn" type="submit" onClick={handleClick}/>
      </form>
      
    </div>
