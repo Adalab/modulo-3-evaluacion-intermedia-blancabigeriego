@@ -53,7 +53,7 @@ function App() {
     })
   };
 
-  const handleClick = (ev) =>{
+  const                                      handleClick = (ev) =>{
     ev.preventDefault();
     setData([...data, newData]);
     setNewData({
@@ -75,7 +75,9 @@ function App() {
   return (
    <div>
      
-     <h1 className= "title">Frases de friends</h1>
+     <header>
+       <h1 className= "title">Frases de friends</h1>
+     </header>
      <form className='form'>
        <label className='form__label'>Filtra por frase:</label>
        <input className='form__input'type="text" placeholder="Escribe la frase" name="search" value={search} onChange={handleSearch}/>
